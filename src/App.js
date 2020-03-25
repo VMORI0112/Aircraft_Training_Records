@@ -13,6 +13,8 @@ const Register = lazy(() => import('./js/views/Register/Register'));
 const CurrentRecords = lazy(() => import('./js/views/currentRecords/currentRecords'));
 const addRecord = lazy(() => import('./js/views/addRecord/addRecord'));
 
+const ShowCourseToDel = lazy(() => import('./js/views/delCourseFromRecords/delCourseFromRecords'));
+
 function App() {
 
     const [backen_url] = useState('https://iwash-backend.herokuapp.com/');
@@ -54,6 +56,7 @@ function App() {
                 <Route path="/register" component={Register} />
                 <Route path="/training-records" component={CurrentRecords} />
                 <Route path="/addRecord" component={addRecord} />
+                <Route path="/delCourseFromRecords" component={ShowCourseToDel} />
                 <Route render={() => <NotFound/>} />
               </Switch>
             </section>
