@@ -36,11 +36,12 @@ const AircraftTrainNavBar = () => {
                                 <img src={process.env.PUBLIC_URL + '/img/avatar/' + avatar} alt="avatar" width="30px" /> {firstname} {lastname}
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
-                                    <Link className="dropdown-item" to="/" >Transactions</Link>
                                     <Link className="dropdown-item" to="/training-records" >Current Training Records</Link>
                                     <Link className="dropdown-item" to="/expire-next-month" >Courses will expire next month</Link>
                                     <Link className="dropdown-item" to="/expire-between-dates" >Courses will expire between dates</Link>
-                                    <Link className="dropdown-item" to="/addRecord" >Add New Record</Link>
+                                    <Link className="dropdown-item" to="/addRecord" >Add New Training Records</Link>
+                                    <Link className="dropdown-item" to="/" >Edit Training Records To Update</Link>
+                                    <Link className="dropdown-item" to="/" >Delete a Course from Training Records</Link>
                                     <button 
                                         className="dropdown-item" 
                                         onClick={async () => {
