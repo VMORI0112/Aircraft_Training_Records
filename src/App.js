@@ -14,6 +14,7 @@ const CurrentRecords = lazy(() => import('./js/views/currentRecords/currentRecor
 const addRecord = lazy(() => import('./js/views/addRecord/addRecord'));
 
 const ShowCourseToDel = lazy(() => import('./js/views/delCourseFromRecords/delCourseFromRecords'));
+const EditToUpdate = lazy(() => import('./js/views/editToUpdate/editToUpdate'));
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
                 <Route path="/training-records" component={CurrentRecords} />
                 <Route path="/addRecord" component={addRecord} />
                 <Route path="/delCourseFromRecords" component={ShowCourseToDel} />
+                <Route path="/editToUpdate" component={EditToUpdate} />
                 <Route render={() => <NotFound/>} />
               </Switch>
             </section>

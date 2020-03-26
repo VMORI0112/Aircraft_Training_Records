@@ -40,7 +40,7 @@ const AircraftTrainNavBar = () => {
                                     <Link className="dropdown-item" to="/expire-next-month" >Courses will expire next month</Link>
                                     <Link className="dropdown-item" to="/expire-between-dates" >Courses will expire between dates</Link>
                                     <Link className="dropdown-item" to="/addRecord" >Add New Training Records</Link>
-                                    <Link className="dropdown-item" to="/" >Edit Training Records To Update</Link>
+                                    <Link className="dropdown-item" to="/editToUpdate" >Edit Training Records To Update</Link>
                                     <Link className="dropdown-item" to="/delCourseFromRecords" >Delete a Course from Training Records</Link>
                                     <button 
                                         className="dropdown-item" 

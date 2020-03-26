@@ -59,7 +59,7 @@ const EditToUpdate = () => {
             method: 'POST',
             body:JSON.stringify({
                     "employerId": myId
-                    "courseNumber": myCourseNumber
+ //                   "courseNumber": myCourseNumber
                 }),
             cors: 'no-cors',
             headers:{
