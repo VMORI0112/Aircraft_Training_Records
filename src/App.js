@@ -18,8 +18,10 @@ const EditToUpdate = lazy(() => import('./js/views/editToUpdate/editToUpdate'));
 
 function App() {
 
-    const [backen_url] = useState('https://iwash-backend.herokuapp.com/');
+    const [backen_url] = useState(' https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/')
+    // const [backen_url] = useState('https://iwash-backend.herokuapp.com/');
     const [Auth, setAuth] = useState(null);
+    
     // const [backen_url_records] = useState(' https://3000-a8e8103b-38a9-441b-a8b2-d02d84f3caf2.ws-us02.gitpod.io/');
     // const [trainData, setTrainData] = useState();
 
