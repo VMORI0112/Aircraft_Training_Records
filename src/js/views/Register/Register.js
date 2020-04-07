@@ -54,7 +54,7 @@ const Register = () => {
                 password: password
             });
             // console.log(userRegisterData)
-            fetch(backen_url+'/register', {
+            fetch(backen_url+'register', {
                 method: 'POST',
                 body: userRegisterData,
                 // cors: 'no-cors',
@@ -64,7 +64,7 @@ const Register = () => {
                 }).then(res => res.json())
                 .then(res => {
                     console.log(res);
-                    swal("ACCOUNT CREATED", "Welcome to iWash", "success", {
+                    swal("ACCOUNT CREATED", "Welcome ", "success", {
                         button: "LOGIN NOW",
                       }).then(() => {
                             history.push('/login');
