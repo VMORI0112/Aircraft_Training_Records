@@ -54,7 +54,7 @@ const Register = () => {
                 password: password
             });
             // console.log(userRegisterData)
-            fetch(backen_url+'register', {
+            fetch(backen_url+'/register', {
                 method: 'POST',
                 body: userRegisterData,
                 // cors: 'no-cors',

@@ -18,7 +18,7 @@ const EditToUpdate = lazy(() => import('./js/views/editToUpdate/editToUpdate'));
 
 function App() {
 
-    const [backen_url] = useState(' https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/')
+    const [backen_url] = useState(' https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io')
     // const [backen_url] = useState('https://iwash-backend.herokuapp.com/');
     const [Auth, setAuth] = useState(null);
     
