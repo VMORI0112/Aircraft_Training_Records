@@ -36,7 +36,7 @@ const Login = () => {
                 let firstname = response.firstname;
                 let lastname = response.lastname;
                 let avatar = response.avatar;
-                let wallet = response.wallet;
+             //   let wallet = response.wallet;
                 if (!token && !email && !firstname && !lastname ) {
                     swal("Sorry we couldn't find an account with that email.", "Try to register first.!", "error", {
                         button: "TRY AGAIN!",
@@ -50,7 +50,7 @@ const Login = () => {
                     localStorage.setItem('firstname', firstname);
                     localStorage.setItem('lastname', lastname);
                     localStorage.setItem('avatar', avatar);
-                    localStorage.setItem('wallet', wallet);
+              //      localStorage.setItem('wallet', wallet);
                     setAuth({
                         'token': token,
                         'userID': userID,
@@ -58,7 +58,7 @@ const Login = () => {
                         'firstname': firstname,
                         'lastname': lastname,
                         'avatar': avatar,
-                        'wallet': wallet
+               //         'wallet': wallet
                     })
                     swal("LOGIN SUCCESSFUL!", "Welcome to ATR", "success", {
                         button: "Let's Go",
