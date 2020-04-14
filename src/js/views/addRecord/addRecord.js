@@ -57,7 +57,7 @@ const AddRecord = () => {
             }).then(res => res.json())
             .then(response => {   
                 if (response.added === "success") {
-                    swal("Success Bro", "Welcome to ATR", "success", {
+                    swal("Successfully added", "Welcome to Aircraft Training Records", "success", {
                         button: "Okay",
                         })
                 } else {
