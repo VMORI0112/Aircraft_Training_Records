@@ -47,6 +47,7 @@ const AddRecord = () => {
 
         // console.log('hey', data)
 
+     
         fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/addrecord', {
             method: 'POST',
             body: data,
