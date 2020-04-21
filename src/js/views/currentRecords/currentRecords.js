@@ -13,7 +13,6 @@ const CurrentRecords = () => {
 
          fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/traindata', {
 
-        // fetch('https://aircraft-record-backend.herokuapp.com/traindata', {
             method: 'POST',
             body:JSON.stringify({
                     "employerId": myValue
