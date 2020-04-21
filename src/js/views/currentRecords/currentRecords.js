@@ -8,8 +8,10 @@ const CurrentRecords = () => {
 
     const [newRecords, setNewRecords] = useState();
 
+    const [delRecord, setDelRecord] = useState();
+
     const searchMyRecords = () => {
-        console.log("dwwe", myValue)
+        console.log("dwwe", myValue) 
 
          fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/traindata', {
 
@@ -31,6 +33,27 @@ const CurrentRecords = () => {
     }
 
     console.log(newRecords)
+
+    const delMyRecord = () => {
+        
+         fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/deltraindata/<int:employ_id>/<int:course_number>', {
+
+            method: 'DELETE',
+           
+            cors: 'no-cors',
+            headers:{
+                'Content-Type': 'application/json'
+            }
+            }).then(res => res.json())
+            .then(response => {
+                setDelRecord(response)
+            })
+            .catch(error => {
+                alert("Something Went Wrong!", error)
+            });
+    }
+
+    console.log(delRecord)
 
     return (
         <div className={styles.main}>  
@@ -63,6 +86,7 @@ const CurrentRecords = () => {
                                     <td>{items.sta}</td>
                                     <td>{items.dateAtten}</td>
                                     <td>{items.anp}</td>
+                                    <button onClick={delMyRecord}>Delete This Course</button>
                                 </tr>
                             
                         
