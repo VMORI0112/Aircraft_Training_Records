@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 
 const EditToUpdate = () => {
 
-     const [myId, setMyId] = useState('');
+     const [myEmployId, setMyEmployId] = useState('');
      const [myCourseNumber, setMyCourseNumber] = useState('');
      const [newRecord, setNewRecord] = useState();
 
@@ -52,13 +52,13 @@ const EditToUpdate = () => {
     }
 
     const searchTheRecord = () => {
-        console.log("dwwe", myId)
+        console.log("dwwe", myEmployId)
         console.log("dwwe", myCourseNumber)
 
-        fetch('https://aircraft-record-backend.herokuapp.com/traindata', {
-            method: 'POST',
+        fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/editDatarecord', {
+            method: 'PUT',
             body:JSON.stringify({
-                    "employerId": myId
+                    "employerId": myEmployId
  //                   "courseNumber": myCourseNumber
                 }),
             cors: 'no-cors',
@@ -80,7 +80,7 @@ const EditToUpdate = () => {
         <div className={styles.main}>
             <h1 className="text-center">Edit Record</h1>
             <label>Enter Employer ID</label>
-            <input type="text" placeholder="Example: 123343" onChange={(e) => setMyId(e.target.value)} />
+            <input type="text" placeholder="Example: 123343" onChange={(e) => setMyEmployId(e.target.value)} />
             <label>Enter Course number</label>
             <input type="text" placeholder="Example: 123343" onChange={(e) => setMyCourseNumber(e.target.value)} />
             <button onClick={searchTheRecord}>Search record</button>
