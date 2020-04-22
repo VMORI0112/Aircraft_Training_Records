@@ -79,10 +79,10 @@ const EditToUpdate = () => {
     return (
         <div className={styles.main}>
             <h1 className="text-center">Edit Record</h1>
-            <label>Enter Employer ID</label>
-            <input type="text" placeholder="Example: 123343" onChange={(e) => setMyEmployId(e.target.value)} />
-            <label>Enter Course number</label>
-            <input type="text" placeholder="Example: 123343" onChange={(e) => setMyCourseNumber(e.target.value)} />
+            <label>Enter Employer ID:</label>
+            <input type="text" placeholder="123456" onChange={(e) => setMyEmployId(e.target.value)} />
+            <label>Enter Course Number:</label>
+            <input type="text" placeholder="123456" onChange={(e) => setMyCourseNumber(e.target.value)} />
             <button onClick={searchTheRecord}>Search record</button>
 
 
