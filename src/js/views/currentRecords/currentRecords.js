@@ -58,8 +58,8 @@ const CurrentRecords = () => {
     return (
         <div className={styles.main}>  
 
-            <label>Insert Your Employer ID</label>
-            <input type="text" placeholder="Ex: 123343" onChange={(e) => setMyValue(e.target.value)} />
+            <label>Enter Your Employer ID</label>
+            <input type="text" placeholder="Ex: 123456" onChange={(e) => setMyValue(e.target.value)} />
             <button onClick={searchMyRecords}>Search my records</button>
 
            
