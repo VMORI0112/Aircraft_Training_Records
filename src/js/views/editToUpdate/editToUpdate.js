@@ -51,16 +51,15 @@ const EditToUpdate = () => {
 
     }
 
-    const searchTheRecord = () => {
+    const searchTheRecord = (myEmployId, myCourseNumber) => {
         console.log("dwwe", myEmployId)
         console.log("dwwe", myCourseNumber)
 
-        fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/editDatarecord', {
+        fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/updatetraindata'+ myEmployId + "/" + myCourseNumber, {
             method: 'PUT',
             body:JSON.stringify({
-                    "employerId": myEmployId
- //                   "courseNumber": myCourseNumber
-                }),
+
+            }),
             cors: 'no-cors',
             headers:{
                 'Content-Type': 'application/json'

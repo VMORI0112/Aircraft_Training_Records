@@ -34,9 +34,9 @@ const CurrentRecords = () => {
 
     console.log(newRecords)
 
-    const delMyRecord = () => {
+    const delCourse = (employId, courseNumber) => {
         
-         fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/deltraindata/<int:employ_id>/<int:course_number>', {
+         fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/deltraindata/'+ employId + "/" + courseNumber, {
 
             method: 'DELETE',
            
@@ -52,8 +52,6 @@ const CurrentRecords = () => {
                 alert("Something Went Wrong!", error)
             });
     }
-
-    console.log(delRecord)
 
     return (
         <div className={styles.main}>  
@@ -77,6 +75,7 @@ const CurrentRecords = () => {
                 </thead>
                 <tbody>
                     {!newRecords ? "loading..." : newRecords.map((items,index) => {
+                      console.log(delCourse(items.employerId,items.courseNumber))  
                         return (
                                 <tr key={index}>
                                     <td>{items.name}</td>
@@ -86,7 +85,7 @@ const CurrentRecords = () => {
                                     <td>{items.sta}</td>
                                     <td>{items.dateAtten}</td>
                                     <td>{items.anp}</td>
-                                    <button onClick={delMyRecord}>Delete This Course</button>
+                                    <button onClick={delCourse}>Delete this Course</button>
                                 </tr>
                             
                         
