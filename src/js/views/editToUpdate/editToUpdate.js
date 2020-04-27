@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styles from './editToUpdate.module.css';
 import swal from 'sweetalert';
+var data;
 
 const EditToUpdate = () => {
 
@@ -28,7 +29,7 @@ const EditToUpdate = () => {
     const [fourYearExpire,  setfourYearExpire] = useState('');
 
     const FormHandler = () => { 
-        let data = JSON.stringify({
+        data = JSON.stringify({
             "employerId": employerId,
             "courseNumber": courseNumber,
             "hasRecu": hasRecu,
@@ -57,9 +58,7 @@ const EditToUpdate = () => {
 
         fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/updatetraindata'+ myEmployId + "/" + myCourseNumber, {
             method: 'PUT',
-            body:JSON.stringify({
-
-            }),
+            body:data,
             cors: 'no-cors',
             headers:{
                 'Content-Type': 'application/json'

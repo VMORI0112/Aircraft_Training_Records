@@ -27,9 +27,9 @@ const CurrentRecords = () => {
             .then(response => {
                 setNewRecords(response)
             })
-            .catch(error => {
-                alert("Something Went Wrong!", error)
-            });
+    //        .catch(error => {
+    //            alert("Something Went Wrong!", error)
+    //        });
     }
 
     console.log(newRecords)
@@ -44,13 +44,7 @@ const CurrentRecords = () => {
             headers:{
                 'Content-Type': 'application/json'
             }
-            }).then(res => res.json())
-            .then(response => {
-                setDelRecord(response)
             })
-            .catch(error => {
-                alert("Something Went Wrong!", error)
-            });
     }
 
     return (
@@ -75,7 +69,7 @@ const CurrentRecords = () => {
                 </thead>
                 <tbody>
                     {!newRecords ? "loading..." : newRecords.map((items,index) => {
-                      console.log(delCourse(items.employerId,items.courseNumber))  
+                      console.log("####",delCourse(items.employerId,items.courseNumber))  
                         return (
                                 <tr key={index}>
                                     <td>{items.name}</td>
@@ -85,12 +79,12 @@ const CurrentRecords = () => {
                                     <td>{items.sta}</td>
                                     <td>{items.dateAtten}</td>
                                     <td>{items.anp}</td>
-                                    <button onClick={delCourse}>Delete this Course</button>
+                                    <button onClick={()=> delCourse(items.employerId,items.courseNumber)}>Delete this Course</button>
                                 </tr>
                             
                         
                         )
-                    }).sort()}
+                    })}
          </tbody>
                 </table>
         </div>
