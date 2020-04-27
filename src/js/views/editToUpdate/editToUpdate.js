@@ -56,7 +56,7 @@ const EditToUpdate = () => {
         console.log("dwwe", myEmployId)
         console.log("dwwe", myCourseNumber)
 
-        fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/updatetraindata'+ myEmployId + "/" + myCourseNumber, {
+        fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/updatetraindata/'+ myEmployId + "/" + myCourseNumber, {
             method: 'PUT',
             body:data,
             cors: 'no-cors',
@@ -81,8 +81,7 @@ const EditToUpdate = () => {
             <input type="text" placeholder="123456" onChange={(e) => setMyEmployId(e.target.value)} />
             <label>Enter Course Number:</label>
             <input type="text" placeholder="123456" onChange={(e) => setMyCourseNumber(e.target.value)} />
-            <button onClick={searchTheRecord}>Search record</button>
-
+            <button onClick={()=> searchTheRecord(myEmployId, myCourseNumber)}>Search record</button>
 
             <div className="container">
                 <input 
