@@ -35,7 +35,8 @@ const CurrentRecords = () => {
     console.log(newRecords)
 
     const delCourse = (employId, courseNumber) => {
-        
+
+               
          fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/deltraindata/'+ employId + "/" + courseNumber, {
 
             method: 'DELETE',
@@ -45,6 +46,7 @@ const CurrentRecords = () => {
                 'Content-Type': 'application/json'
             }
             })
+            .then(()=> searchMyRecords() )
     }
 
     return (
@@ -52,7 +54,7 @@ const CurrentRecords = () => {
 
             <label>Enter Your Employer ID</label>
             <input type="text" placeholder="Ex: 123456" onChange={(e) => setEmployId(e.target.value)} />
-            <button onClick={searchMyRecords}>Search my records</button>
+            <button onClick={() => searchMyRecords()}>Search my records</button>
 
            
             <table class="table">
@@ -69,7 +71,7 @@ const CurrentRecords = () => {
                 </thead>
                 <tbody>
                     {!newRecords ? "loading..." : newRecords.map((items,index) => {
-                      console.log("####",delCourse(items.employerId,items.courseNumber))  
+                        
                         return (
                                 <tr key={index}>
                                     <td>{items.name}</td>

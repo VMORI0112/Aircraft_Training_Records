@@ -4,32 +4,32 @@ import swal from 'sweetalert';
 var data;
 
 const EditToUpdate = () => {
-
-     const [myEmployId, setMyEmployId] = useState('');
-     const [myCourseNumber, setMyCourseNumber] = useState('');
+     const[updateRecord, setUpdateRecord] = useState({})
+     const [myEmployId, setMyEmployId] = useState();
+     const [myCourseNumber, setMyCourseNumber] = useState();
      const [newRecord, setNewRecord] = useState();
 
-    const [employerId,  setemployerId] = useState('');
-    const [courseNumber,  setcourseNumber] = useState('');
-    const [hasRecu,  sethasRecu] = useState('');
-    const [descriptionName,  setdescriptionName] = useState('');
-    const [dateAtten,  setdateAtten] = useState('');
-    const [ceCo,  setceCo] = useState('');
-    const [trainingGroup,  settrainingGroup] = useState('');
-    const [name,  setname] = useState('');
-    const [hours,  sethours] = useState('');
-    const [days,  setdays] = useState('');
-    const [sta,  setsta] = useState('');
-    const [anp,  setanp] = useState('');
-    const [insIni,  setinsIni] = useState('');
-    const [recurrent,  setrecurrent] = useState('');
-    const [oneYearExpire,  setoneYearExpire] = useState('');
-    const [twoYearExpire,  settwoYearExpire] = useState('');
-    const [threeYearExpire,  setthreeYearExpire] = useState('');
-    const [fourYearExpire,  setfourYearExpire] = useState('');
+    const [employerId,  setemployerId] = useState();
+    const [courseNumber,  setcourseNumber] = useState();;
+    const [hasRecu,  sethasRecu] = useState();
+    const [descriptionName,  setdescriptionName] = useState();
+    const [dateAtten,  setdateAtten] = useState();
+    const [ceCo,  setceCo] = useState();
+    const [trainingGroup,  settrainingGroup] = useState();
+    const [name,  setname] = useState();
+    const [hours,  sethours] = useState();
+    const [days,  setdays] = useState();
+    const [sta,  setsta] = useState();
+    const [anp,  setanp] = useState();
+    const [insIni,  setinsIni] = useState();
+    const [recurrent,  setrecurrent] = useState();
+    const [oneYearExpire,  setoneYearExpire] = useState();
+    const [twoYearExpire,  settwoYearExpire] = useState();
+    const [threeYearExpire,  setthreeYearExpire] = useState();
+    const [fourYearExpire,  setfourYearExpire] = useState();
 
-    const FormHandler = () => { 
-        data = JSON.stringify({
+    
+    let  data = {
             "employerId": employerId,
             "courseNumber": courseNumber,
             "hasRecu": hasRecu,
@@ -48,17 +48,39 @@ const EditToUpdate = () => {
             "twoYearExpire": twoYearExpire,
             "threeYearExpire": threeYearExpire,
             "fourYearExpire": fourYearExpire
-        })
+        }
 
+    
+
+     const searchMyRecords = () => {
+        // console.log("dwwe", employId) 
+
+         fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/traindata_update', {
+
+            method: 'POST',
+            body:JSON.stringify({
+                    "employerId": myEmployId,
+                    "courseNumber": myCourseNumber
+                }),
+            cors: 'no-cors',
+            headers:{
+                'Content-Type': 'application/json'
+            }
+            }).then(res => res.json())
+            .then(response => {
+                setUpdateRecord(response)
+            })
+    //        .catch(error => {
+    //            alert("Something Went Wrong!", error)
+    //        });
     }
+    const updateRec = (employId, courseNumber, obj) => {
+        // console.log("dwwe", myEmployId)
+        console.log("dwwe", obj)
 
-    const searchTheRecord = (myEmployId, myCourseNumber) => {
-        console.log("dwwe", myEmployId)
-        console.log("dwwe", myCourseNumber)
-
-        fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/updatetraindata/'+ myEmployId + "/" + myCourseNumber, {
+        fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/updatetraindata/'+ employId + "/" + courseNumber, {
             method: 'PUT',
-            body:data,
+            body:JSON.stringify(obj),
             cors: 'no-cors',
             headers:{
                 'Content-Type': 'application/json'
@@ -81,19 +103,22 @@ const EditToUpdate = () => {
             <input type="text" placeholder="123456" onChange={(e) => setMyEmployId(e.target.value)} />
             <label>Enter Course Number:</label>
             <input type="text" placeholder="123456" onChange={(e) => setMyCourseNumber(e.target.value)} />
-            <button onClick={()=> searchTheRecord(myEmployId, myCourseNumber)}>Search record</button>
+            <button onClick={()=> searchMyRecords()}>Search record</button>
 
             <div className="container">
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={employerId}
+                    defaultValue={updateRecord && updateRecord.employerId}
+            
                     onChange={(e) => setemployerId(e.target.value)}
+
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
+                    defaultValue={updateRecord && updateRecord.courseNumber}
                     value={courseNumber}
                     onChange={(e) => setcourseNumber(e.target.value)}
                 />
@@ -101,118 +126,119 @@ const EditToUpdate = () => {
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={hasRecu}
+                    defaultValue={updateRecord && updateRecord.hasRecu}
                     onChange={(e) => sethasRecu(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={descriptionName}
+                    defaultValue={updateRecord && updateRecord.descriptionName}
                     onChange={(e) => setdescriptionName(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={dateAtten}
+                    value={updateRecord.dateAtten}
+                    defaultValue={updateRecord.dateAtten}
                     onChange={(e) => setdateAtten(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={ceCo}
+                    defaultValue={updateRecord && updateRecord.ceCo}
                     onChange={(e) => setceCo(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={trainingGroup}
+                    defaultValue={updateRecord && updateRecord.trainingGroup}
                     onChange={(e) => settrainingGroup(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={name}
+                    defaultValue={updateRecord && updateRecord.name }
                     onChange={(e) => setname(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={hours}
+                    defaultValue={updateRecord && updateRecord.hours}
                     onChange={(e) => sethours(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={days}
+                    defaultValue={updateRecord && updateRecord.days}
                     onChange={(e) => setdays(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={sta}
+                    defaultValue={updateRecord && updateRecord.sta}
                     onChange={(e) => setsta(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={anp}
+                    defaultValue={updateRecord && updateRecord.anp}
                     onChange={(e) => setanp(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={insIni}
+                    defaultValue={updateRecord && updateRecord.insIni}
                     onChange={(e) => setinsIni(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={recurrent}
+                    defaultValue={updateRecord && updateRecord.recurrent}
                     onChange={(e) => setrecurrent(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={oneYearExpire}
+                    defaultValue={updateRecord && updateRecord.oneYearExpire}
                     onChange={(e) => setoneYearExpire(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={twoYearExpire}
+                    defaultValue={updateRecord && updateRecord.twoYearExpire}
                     onChange={(e) => settwoYearExpire(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={threeYearExpire}
+                    defaultValue={updateRecord && updateRecord.threeYearExpire}
                     onChange={(e) => setthreeYearExpire(e.target.value)}
                 />
                 <br/>
                 <input 
                     type="text" 
                     className="form-control" 
-                    value={fourYearExpire}
+                    defaultValue={updateRecord && updateRecord.fourYearExpire}
                     onChange={(e) => setfourYearExpire(e.target.value)}
                 />
                 <br/>
                 <button 
                     className="form-control btn btn-primary"
-                    onClick={FormHandler}
+                    onClick={()=> updateRec(myEmployId, myCourseNumber, data)}
                 >
                     Submit Updated Record
                 </button>
