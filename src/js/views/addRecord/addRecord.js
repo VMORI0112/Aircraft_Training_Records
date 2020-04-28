@@ -25,8 +25,8 @@ const AddRecord = () => {
 
     const FormHandler = () => { 
         let data = JSON.stringify({
-            "employerId": employerId,
-            "courseNumber": courseNumber,
+            "employerId": parseInt(employerId),
+            "courseNumber": parseInt(courseNumber),
             "hasRecu": hasRecu,
             "descriptionName": descriptionName,
             "dateAtten": dateAtten,
@@ -34,9 +34,9 @@ const AddRecord = () => {
             "trainingGroup": trainingGroup,
             "name": name,
             "hours": hours,
-            "days": days,
+            "days": parseFloat(days),
             "sta": sta,
-            "anp": anp,
+            "anp": parseInt(anp),
             "insIni": insIni,
             "recurrent": recurrent,
             "oneYearExpire": oneYearExpire,
@@ -44,10 +44,9 @@ const AddRecord = () => {
             "threeYearExpire": threeYearExpire,
             "fourYearExpire": fourYearExpire
         })
-
+console.log("data",data)
         // console.log('hey', data)
 
-     
         fetch('https://3000-aaee05d3-afa1-4c57-88c2-89535a1c0b88.ws-us02.gitpod.io/addrecord', {
             method: 'POST',
             body: data,
@@ -55,9 +54,11 @@ const AddRecord = () => {
             headers:{
                 'Content-Type': 'application/json'
             }
-            }).then(res => res.json())
+        })
+        
+            .then(res => res.json())
             .then(response => {   
-                if (response.added === "success") {
+                if (response.Added === "success") {
                     swal("Successfully added", "Welcome to Aircraft Training Records", "success", {
                         button: "Okay",
                         })

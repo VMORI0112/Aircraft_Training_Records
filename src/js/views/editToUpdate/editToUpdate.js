@@ -119,7 +119,7 @@ const EditToUpdate = () => {
                     type="text" 
                     className="form-control" 
                     defaultValue={updateRecord && updateRecord.courseNumber}
-                    value={courseNumber}
+                    // value={courseNumber}
                     onChange={(e) => setcourseNumber(e.target.value)}
                 />
                  <br/>
